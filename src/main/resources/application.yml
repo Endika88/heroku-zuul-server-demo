@@ -1,5 +1,8 @@
 zuul:
   routes:
+    my-service:
+      path: /my-service/**
+      serviceId: my-service
     get:
       path: /get/**
       url: http://httpbin.org/get
@@ -12,4 +15,5 @@ zuul:
 
 eureka:
   client:
-    enabled: false
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
